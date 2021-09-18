@@ -25,12 +25,11 @@ export const getPhotosByToday = () => {
 }
 
 export const getPhotos = (rover) => {
-  return async (dispatch,getState) =>{
+  return async (dispatch) =>{
     dispatch(getPhotosRequest());
     return fetch(`${API_ROVERS_URL}/${rover}/photos?sol=1&api_key=${API_NASA_KEY}`)
       .then((response) => response.json())
       .then((photos) => {
-        console.log(getState().rovers.content)
         dispatch(getPhotosSuccess(photos));
       })
       .catch((error) => {
@@ -39,13 +38,12 @@ export const getPhotos = (rover) => {
   };
 }
 
-export const getPhotosByCamera = (rover,cam) => {
-  return async (dispatch,getState) =>{
+export const getPhotosByCameraAndSol = (rover,cam,sol) => {
+  return async (dispatch) =>{
     dispatch(getPhotosRequest());
-    return fetch(`${API_ROVERS_URL}/${rover}/photos?sol=1&camera=${cam}&api_key=${API_NASA_KEY}`)
+    return fetch(`${API_ROVERS_URL}/${rover}/photos?sol=${sol}&camera=${cam}&api_key=${API_NASA_KEY}`)
       .then((response) => response.json())
       .then((photos) => {
-        console.log(getState().rovers.content)
         dispatch(getPhotosSuccess(photos));
       })
       .catch((error) => {

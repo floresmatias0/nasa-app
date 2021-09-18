@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import Navbar from "../../components/navbar/Navbar";
+import TabsRovers from "../../components/tabsRover/TabsRovers";
 import CardPhoto from "../../components/cardPhoto/CardPhoto";
 import Paginate from "../../components/paginate/Paginate";
 import Skeleton from '../../components/skeleton/Skeleton'
@@ -22,13 +22,11 @@ const Home = ({ STATE, CONTENT, LOADING }) => {
 
   return (
     <div className="container_home">
-      <Navbar />
-      <div>
-        <h2>photos of the day</h2>
-      </div>
+      <TabsRovers />
       <div>
         {STATE && !LOADING ? (
           <>
+          <h2>photos of the day</h2>
             <Paginate
               total={CONTENT[0].photos.length}
               postPerPage={postPerPage}
