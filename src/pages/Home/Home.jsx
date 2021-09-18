@@ -1,41 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import CardRover from "../../components/cardRover/cardRover";
-import rocket from "../../assets/images/loading/rocket.png";
+
+import Navbar from "../../components/navbar/Navbar";
+import CardPhoto from "../../components/cardPhoto/CardPhoto";
+import Paginate from "../../components/paginate/Paginate";
+import Skeleton from '../../components/skeleton/Skeleton'
 
 const Home = ({ STATE, CONTENT, LOADING }) => {
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage] = useState(20);
+
+  const indexOfLastPage = currentPage * postPerPage;
+  const indexOfFirstPage = indexOfLastPage - postPerPage;
+  let currentPost =
+    CONTENT && CONTENT.length > 0
+      ? CONTENT[0].photos.slice(indexOfFirstPage, indexOfLastPage)
+      : 0;
+
+  const pagination = (number) => setCurrentPage(number);
+
   return (
     <div className="container_home">
-      <h1>Home</h1>
-      {STATE && !LOADING ? (
-        CONTENT &&
-        CONTENT.length > 0 &&
-        <div className="content_cards">
-        {CONTENT[0].rovers.map((elem,i) => (
-          <div key={i}>
-            <CardRover props={elem}/>
+      <Navbar />
+      <div>
+        <h2>photos of the day</h2>
+      </div>
+      <div>
+        {STATE && !LOADING ? (
+          <>
+            <Paginate
+              total={CONTENT[0].photos.length}
+              postPerPage={postPerPage}
+              pagination={pagination}
+            />
+            <div className="container_cards">
+              {currentPost.map((elem, i) => (
+                <CardPhoto props={elem} key={i} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="container_cards">
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
           </div>
-        ))}
-        </div>
-      ) : (
-        <div className="content_loading">
-          <img
-            className="image_loading animate__animated animate__bounce animate__infinite"
-            src={rocket}
-            alt="loading"
-          />
-          <p>loading...</p>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    STATE: state.rovers,
-    CONTENT: state.rovers.content,
-    LOADING: state.rovers.contentLoading
+    STATE: state.photos,
+    CONTENT: state.photos.content,
+    LOADING: state.photos.contentLoading,
   };
 };
 

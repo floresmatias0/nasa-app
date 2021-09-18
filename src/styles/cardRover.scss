@@ -1,0 +1,10 @@
+@use '_colors.scss' as c;
+
+.card_rover{
+    width: 250px;
+    background-color: c.$bg_card;
+    text-align: center;  
+}
+.info_rover{
+    text-align: justify;
+}

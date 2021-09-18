@@ -1,0 +1,18 @@
+.container_paginate{
+    width: 100%;
+    ul{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        list-style: none;
+        li{
+            background-color: azure;
+            padding: .5em;
+            cursor: pointer;
+            &:hover{
+                opacity: .5;
+            }
+        }
+    }
+}
