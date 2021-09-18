@@ -9,11 +9,11 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import reducers from './store/store';
 import { getRovers } from './store/rovers/actions'
+import './styles/index.scss'
 
 const store = createStore(
   reducers,
   composeWithDevTools(applyMiddleware(thunk,logger))
-
 );
 
 getRovers()(store.dispatch,store.getState)

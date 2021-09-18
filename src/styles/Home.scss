@@ -1,0 +1,25 @@
+@use '_colors.scss' as c;
+
+.container_home{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    h1{
+        text-align: center;
+    }
+    .content_cards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        div{
+            width: 250px;
+            background-color: c.$bg_card;
+        }
+    }
+}
+.content_loading{
+
+    .image_loading{
+        width: 60px;
+    }  
+}

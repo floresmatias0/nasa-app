@@ -1,40 +1,40 @@
 //actions creators
 //FETCH GET POKEMON FROM THE SERVER WITCH THUNK
-export const GET_POKEMON_REQUEST = "GET_POKEMON_REQUEST";
-export const GET_POKEMON_SUCCESS = "GET_POKEMON_SUCCESS";
-export const GET_POKEMON_FAILURE = "GET_POKEMON_FAILURE";
+export const GET_PHOTOS_REQUEST = "GET_PHOTOS_REQUEST";
+export const GET_PHOTOS_SUCCESS = "GET_PHOTOS_SUCCESS";
+export const GET_PHOTOS_FAILURE = "GET_PHOTOS_FAILURE";
 
 
 //las acciones describen que es lo que va a SUCEDER
 export function getPokemon(pokemon){
     
     return function (dispatch) {
-        dispatch(getPokemonRequest())
+        dispatch(getPhotosRequest())
         return fetch("https://heroku-api-pokemon.herokuapp.com/pokemons/" + pokemon)
             .then(response => response.json())
             .then(pokemon =>{
-                dispatch(getPokemonSuccess(pokemon))
+                dispatch(getPhotosSuccess(pokemon))
             }).catch((error)=>{
-                dispatch(getPokemonFailure(error))
+                dispatch(getPhotosFailure(error))
             })
     }
 }
 
-export const getPokemonRequest = () =>{
+export const getPhotosRequest = () =>{
     return {
-        type: GET_POKEMON_REQUEST
+        type: GET_PHOTOS_REQUEST
     }
 }
 
-export const getPokemonSuccess = (pokemon) =>{
+export const getPhotosSuccess = (pokemon) =>{
     return {
-        type: GET_POKEMON_SUCCESS,
+        type: GET_PHOTOS_SUCCESS,
         payload: pokemon
     }
 } 
-export const getPokemonFailure = (error) =>{
+export const getPhotosFailure = (error) =>{
     return {
-        type: GET_POKEMON_FAILURE,
+        type: GET_PHOTOS_FAILURE,
         payload: error
     }
 } 

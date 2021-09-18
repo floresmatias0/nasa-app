@@ -1,8 +1,8 @@
-import {
-    GET_POKEMON_REQUEST,
-    GET_POKEMON_SUCCESS,
-    GET_POKEMON_FAILURE,
-} from './actions'
+// import {
+//     GET_PHOTOS_REQUEST,
+//     GET_PHOTOS_SUCCESS,
+//     GET_PHOTOS_FAILURE,
+// } from './actions'
 
 //GENERA UN NUEVO ESTADO Y  **PISA** EL ANTERIOR
 const initialState = {
