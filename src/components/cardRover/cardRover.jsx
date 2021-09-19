@@ -65,15 +65,16 @@ const CardRover = ({
                     dispatch(getPhotosByCameraAndSol(name,fields.cameras,fields.sol) )
                 }}
             >
-            {({errors,touched, handleChange}) => (
+            {({errors,touched}) => (
                 <Form>
-                    <select value={`${cameras[0].name}`} name="cameras" onChange={handleChange}>
+                    <Field as="select" name="cameras">
                       {cameras.map((el, i) => <option value={el.name} key={i}>{el.name}</option>)}
-                    </select>
+                    </Field>
                     {touched.cameras && errors.cameras && <p>{errors.cameras}</p>}
 
-                    <Field name="sol" type="range" min="0" max="3211"/>
+                    <Field name="sol" type="range" min="0" max={`${max_sol}`}/>
                     {touched.sol && errors.sol && <p>{errors.sol}</p>}
+                    
                     <button type="submit">Filter</button>
                 </Form>
             )}

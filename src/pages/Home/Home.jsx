@@ -9,7 +9,7 @@ import Skeleton from '../../components/skeleton/Skeleton'
 const Home = ({ STATE, CONTENT, LOADING }) => {
   
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage] = useState(20);
+  const [postPerPage] = useState(25);
 
   const indexOfLastPage = currentPage * postPerPage;
   const indexOfFirstPage = indexOfLastPage - postPerPage;
@@ -18,29 +18,34 @@ const Home = ({ STATE, CONTENT, LOADING }) => {
       ? CONTENT[0].photos.slice(indexOfFirstPage, indexOfLastPage)
       : 0;
 
-  const pagination = (number) => setCurrentPage(number);
+  const pagination = (number) => {
+    setCurrentPage(number)
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  };
 
-  const addFavorite = (key,photo) => {
+  const addFavorite = (photo) => {
 
       let storage = localStorage.getItem("photos")
       if(storage){
-          let arr; 
           let previous = JSON.parse(storage);
-          arr = previous;
+          let arr = []
 
-          arr.forEach(elem => {
-            if(elem.key !== key) {
-              arr.push({key,photo})
+          previous.forEach(element => {
+            if(element.id !== photo.id){
+              arr.push(element)
               localStorage.clear()
-              localStorage.setItem("photos",JSON.stringify(arr))
+              localStorage.setItem("photos",JSON.stringify(arr.concat(photo))) 
             }else{
-              alert('ya esta') 
+              alert('esta foto ya existe en tus favoritos')
             }
-
-          })
+          })     
           return
       }else{
-        localStorage.setItem("photos",JSON.stringify([{key,photo}]))
+        localStorage.setItem("photos",JSON.stringify([photo]))
       }
   }
 
@@ -51,16 +56,16 @@ const Home = ({ STATE, CONTENT, LOADING }) => {
         {STATE && !LOADING ? (
           <>
           <h2>photos of the day</h2>
+            <div className="container_cards">
+              {currentPost.map((elem, i) => (
+                <CardPhoto props={elem} key={i} addFav={addFavorite} removeFav={false}/>
+              ))}
+            </div>
             <Paginate
               total={CONTENT[0].photos.length}
               postPerPage={postPerPage}
               pagination={pagination}
             />
-            <div className="container_cards">
-              {currentPost.map((elem, i) => (
-                <CardPhoto props={elem} key={i} id={i} addFav={addFavorite}/>
-              ))}
-            </div>
           </>
         ) : (
           <div className="container_cards">
