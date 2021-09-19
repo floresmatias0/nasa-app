@@ -52,6 +52,22 @@ export const getPhotosByCameraAndSol = (rover,cam,sol) => {
   };
 }
 
+export const getPhotosByDay = (rover,date) => {
+
+  return async (dispatch) =>{
+
+      dispatch(getPhotosRequest());
+      return fetch(`${API_ROVERS_URL}/${rover}/photos?earth_date=${date}&api_key=${API_NASA_KEY}`)
+        .then((response) => response.json())
+        .then((photos) => {
+            dispatch(getPhotosSuccess(photos));
+        })
+        .catch((error) => {
+          dispatch(getPhotosFailure(error));
+        });
+    };
+}
+
 export const getPhotosRequest = () => {
   return {
     type: GET_PHOTOS_REQUEST,

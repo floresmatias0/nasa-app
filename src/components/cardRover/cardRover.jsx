@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import { Formik, Field, Form } from 'formik';
-import { getPhotosByCameraAndSol } from '../../store/photos/actions'
+import { getPhotosByCameraAndSol,getPhotosByDay } from '../../store/photos/actions'
 
 const CardRover = ({
   photos,
@@ -20,6 +20,8 @@ const CardRover = ({
 }) => {
 
   const [hidden, setHidden] = useState(false)
+  const [distance,setDistance] = useState(0)
+  const [date, setDate] = useState("")
 
   const dispatch = useDispatch()
 
@@ -28,6 +30,15 @@ const CardRover = ({
     photos(name);
     !hidden ? setHidden(true) : setHidden(false)
   };
+
+  const handleChange = (e) => {
+    setDistance(e.target.value)
+  }
+
+  const handleChangeDate = (e) => {
+    setDate(e.target.value)
+  }
+
 
   return (
     <div className="card_rover">
@@ -46,23 +57,25 @@ const CardRover = ({
        <h2 onClick={(e) => handlePhotos(e, name)}>{name}</h2>
       </Tippy>
       {hidden
-        ?   <Formik
+        ?   
+          <><Formik
                 initialValues={{
                     cameras: "",
-                    sol: ""
+                    sol: "",
+                    date:""
                 }}
                 validate={(fields) =>{
                     let errors = {}
                     if(!fields.cameras){
                         errors.cameras = "Please choose a camera"
                     }
-                    if(!fields.sol){
+                    if(!distance){
                         errors.sol = "Please choose a distance of the sol"
                     }
                     return errors
                 }}
                 onSubmit={(fields) => {
-                    dispatch(getPhotosByCameraAndSol(name,fields.cameras,fields.sol) )
+                    dispatch(getPhotosByCameraAndSol(name,fields.cameras,distance) )
                 }}
             >
             {({errors,touched}) => (
@@ -72,13 +85,37 @@ const CardRover = ({
                     </Field>
                     {touched.cameras && errors.cameras && <p>{errors.cameras}</p>}
 
-                    <Field name="sol" type="range" min="0" max={`${max_sol}`}/>
+                    <p>distance: {distance}</p>
+                    <input name="sol" type="range" min="0" max={`${max_sol}`} onChange={handleChange}/>
                     {touched.sol && errors.sol && <p>{errors.sol}</p>}
                     
                     <button type="submit">Filter</button>
                 </Form>
             )}
             </Formik>
+            <Formik
+            initialValues={{
+                date:""
+            }}
+            validate={() =>{
+                let errors = {}
+                if(!date){
+                    errors.date = "Please choose a date"
+                }
+                return errors
+            }}
+            onSubmit={() => {
+                dispatch(getPhotosByDay(name,date) )
+            }}
+            >
+            {({errors,touched}) => (
+                <Form>
+                    <input type="date" min={`${launch_date}`} max={`${max_date}`} name="date" onChange={handleChangeDate}/>
+                    {touched.date && errors.date && <p>{errors.date}</p>}
+                    <button type="submit">Filter</button>
+                </Form>
+            )}
+            </Formik></>
         : ""}
     </div>
   );
