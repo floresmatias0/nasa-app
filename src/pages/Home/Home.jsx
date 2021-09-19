@@ -20,6 +20,30 @@ const Home = ({ STATE, CONTENT, LOADING }) => {
 
   const pagination = (number) => setCurrentPage(number);
 
+  const addFavorite = (key,photo) => {
+
+      let storage = localStorage.getItem("photos")
+      if(storage){
+          let arr; 
+          let previous = JSON.parse(storage);
+          arr = previous;
+
+          arr.forEach(elem => {
+            if(elem.key !== key) {
+              arr.push({key,photo})
+              localStorage.clear()
+              localStorage.setItem("photos",JSON.stringify(arr))
+            }else{
+              alert('ya esta') 
+            }
+
+          })
+          return
+      }else{
+        localStorage.setItem("photos",JSON.stringify([{key,photo}]))
+      }
+  }
+
   return (
     <div className="container_home">
       <TabsRovers />
@@ -34,7 +58,7 @@ const Home = ({ STATE, CONTENT, LOADING }) => {
             />
             <div className="container_cards">
               {currentPost.map((elem, i) => (
-                <CardPhoto props={elem} key={i} />
+                <CardPhoto props={elem} key={i} id={i} addFav={addFavorite}/>
               ))}
             </div>
           </>

@@ -1,8 +1,10 @@
 import React from "react";
 
-const CardPhoto = ({props:{img_src, sol, camera, rover, earth_date}}) => {
+const CardPhoto = ({ id,addFav,props,props:{img_src, sol, camera, rover, earth_date }}) => {
+
     return(
         <div className="card_photo">
+            <button onClick={() => addFav(id,props)}>fav</button>
             <p>distance: {sol}</p>
             <p>camera: {camera.name}</p>
             <p>rover: {rover.name}</p>
