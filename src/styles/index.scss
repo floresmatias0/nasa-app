@@ -1,5 +1,7 @@
-@forward './_colors.scss';
+@forward './_variables.scss';
 @forward './pages/Home.scss';
+@forward './pages/Favorites.scss';
+@forward './pages/About.scss';
 @forward './components/cardPhoto.scss';
 @forward './components/common.scss';
 @forward './components/tabsRover.scss';

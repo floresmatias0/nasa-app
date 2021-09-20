@@ -12,16 +12,16 @@ const Paginate = ({ total, postPerPage, pagination }) => {
     <div className="container_paginate">
       <ul>
         {pageNumber.map((elem, i) => {
-          if(elem !== 0){
-            return (
-              <li key={i}>
-                <Link onClick={() => pagination(elem)} to="/">
-                  {elem}
-                </Link>
-              </li>
-            );
-          }
-        })}
+            if(elem !== 0){
+              return (
+                <li key={i}>
+                  <Link onClick={() => pagination(elem)} to="/">
+                    {elem}
+                  </Link>
+                </li>
+              );
+            }
+          })}
       </ul>
     </div>
   );

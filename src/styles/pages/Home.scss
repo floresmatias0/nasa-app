@@ -1,13 +1,16 @@
+@use '../_variables.scss' as f;
+
 .container_home{
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    h2{
+    h1{
+        font-family: f.$font_title;
         color: #FFFFFF;
+        margin: 0;
     }
-
 }
 .container_cards{
     display: flex;

@@ -1,10 +1,108 @@
-@use '../_colors.scss' as c;
+@use '../_variables.scss' as c;
 
 .card_rover{
-    width: 250px;
+    display: flex;
+    flex-direction: row;
     background-color: c.$bg_card;
     text-align: center;  
+    position: relative;
+    &:first-child{
+        border-top-left-radius: .3em;
+        border-bottom-left-radius: .3em;
+    }
+    &:last-child{
+        border-top-right-radius: .3em;
+        border-bottom-right-radius: .3em;
+        li{
+            display: none;
+        }
+    }
+    &:hover{
+            background-color: #363636;
+    }
+
+    p{
+        width: 200px;
+        font-family: c.$font_title;
+        font-weight: 300;
+        color: #FFFFFF;
+        margin: .5em;
+        cursor: pointer;
+        
+    }
+    li{
+        width: 2px;
+        list-style: none;
+        background-color: #888;
+        height: 60%;
+        align-self: center;
+    }  
+
+
+
 }
 .info_rover{
     text-align: justify;
+    font-family: c.$font_title;
+}
+.options{
+    position: absolute;
+    top: 2.5em;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding-top: 2.5em;
+    background-color: c.$bg_card;;
+    border-radius: .2em;
+    width: 200px;
+    clip-path: polygon(0 100%, 100% 100%, 100% 9%, 59% 9%, 51% 0, 44% 9%, 0 9%);
+    p{
+        margin: 0 auto;
+    }
+    img{
+        width: 24px;
+        cursor: pointer;
+    }
+    form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        input,select{
+            width: 80%;
+            margin: 0 auto;
+            font-family: c.$font_title;
+        }
+        label{
+            font-family: c.$font_title;
+            color: #FFFFFF;
+            font-size: 14px;
+        }
+        span{
+            color: #b60303;
+            font-family: c.$font_title;
+            font-size: 13px;
+            font-weight: 600;
+            width: 100%;
+            margin: 0 auto;
+        }
+        button{
+            font-family: c.$font_title; 
+            background-color: #15418cc4;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            width: 80%;
+            border-radius: .3em;
+            margin: .5em auto;
+            color: #FFFFFF;
+            &:hover{
+                background-color: #15418c;
+            }
+            &:active{
+                transform: scale(0.95);
+            }
+        }
+        
+    }
 }

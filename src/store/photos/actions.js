@@ -16,26 +16,14 @@ export const getPhotosByToday = () => {
         return fetch(`${API_ROVERS_URL}/curiosity/photos?earth_date=${today}&api_key=${API_NASA_KEY}`)
           .then((response) => response.json())
           .then((photos) => {
+            setTimeout(() => {
               dispatch(getPhotosSuccess(photos));
+            },2000)
           })
           .catch((error) => {
             dispatch(getPhotosFailure(error));
           });
       };
-}
-
-export const getPhotos = (rover) => {
-  return async (dispatch) =>{
-    dispatch(getPhotosRequest());
-    return fetch(`${API_ROVERS_URL}/${rover}/photos?sol=1&api_key=${API_NASA_KEY}`)
-      .then((response) => response.json())
-      .then((photos) => {
-        dispatch(getPhotosSuccess(photos));
-      })
-      .catch((error) => {
-        dispatch(getPhotosFailure(error));
-      });
-  };
 }
 
 export const getPhotosByCameraAndSol = (rover,cam,sol) => {

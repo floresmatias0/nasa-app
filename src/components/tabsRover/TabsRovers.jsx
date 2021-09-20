@@ -2,11 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 
 import CardRover from "../cardRover/cardRover";
-import { getPhotos } from "../../store/photos/actions";
 
 import rocket from "../../assets/images/loading/rocket.png";
 
-const TabsRovers = ({ STATE, CONTENT, LOADING, GET_PHOTOS }) => {
+const TabsRovers = ({ STATE, CONTENT, LOADING }) => {
   return (
     <div>
       {STATE && !LOADING ? (
@@ -16,9 +15,7 @@ const TabsRovers = ({ STATE, CONTENT, LOADING, GET_PHOTOS }) => {
         {CONTENT[0].rovers.map((elem,i) => {
           if(elem.name !== "Perseverance"){
             return(
-              <div key={i}>
-                <CardRover props={elem} photos={GET_PHOTOS}/>
-              </div>
+                <CardRover props={elem} key={i} />
             )
           } 
         })}
@@ -46,9 +43,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    GET_PHOTOS: (name) => dispatch(getPhotos(name))  
-  }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(TabsRovers);
+
+export default connect(mapStateToProps)(TabsRovers);
