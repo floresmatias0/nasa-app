@@ -1,6 +1,66 @@
-.container_rovers{
+.navbar{
+    width: 100%;
+    height: 85px;
+    min-height: 85px;
+    max-height: 85px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-wrap: nowrap;
+    background-image: url('../../assets/images/starfield-banner.jpg');
+    background-repeat: repeat;
+    div:first-child{
+        width: 100px;
+        display: flex;
+        align-items: center;
+        img{
+            width: 80px;
+            padding: 0 .5em;
+            
+        }
+    }
+    div:last-child{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        span{
+            height: 100%; 
+            padding: 0 1em;
+            display: flex;
+            a{
+                color: #FFFFFF;
+                text-decoration: none;
+                font-family: 'Titillium Web', sans-serif;
+                align-self: center;
+            }  
+            &:hover{
+                background-color: #36363677;
+            }
+        }
+        li{
+            width: 2px;
+            background-color: #555555;
+            height: 60%;
+            align-self: center;
+        }
+    }    
 }
+// @media screen and (max-width:960px){
+//     .navbar{
+//         div:first-child{
+//             width: 15%;
+//         }
+//         div:last-child{
+//             width: 85%;
+//         }
+//     }
+// }
+// @media screen and (max-width:480px){
+//     .navbar{
+//         div:first-child{
+//             width: 25%;
+//         }
+//         div:last-child{
+//             width: 75%;
+//         }
+//     }
+// }
