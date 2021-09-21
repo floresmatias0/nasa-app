@@ -22,6 +22,16 @@ import "tippy.js/dist/tippy.css";
 import Swal from "sweetalert2";
 
 const About = () => {
+
+  let linkedin =
+  "https://res.cloudinary.com/djnhaprmj/image/upload/v1631657531/linkedin_nj0q7q.png";
+  let instagram =
+    "https://res.cloudinary.com/djnhaprmj/image/upload/v1631658056/instagram_k33rwq.png";
+  let facebook =
+    "https://res.cloudinary.com/djnhaprmj/image/upload/v1631659057/facebook_wpoox9.png";
+  let cv =
+    "https://res.cloudinary.com/djnhaprmj/image/upload/v1631661310/curriculum_wgpy4g.png";
+
   let titleCopernico = "Nicolás Copérnico (1473 - 1543)";
   let phraseEarth =
     "The apparent retrograde and direct movement of the planets does not arise from their movement, but from the Earth";
@@ -170,6 +180,41 @@ const About = () => {
         NASA website although a little modernized I hope you like it, enjoy
         doing it a lot
       </p>
+      <div className="container_social_networks">
+        <h2 style={{ marginTop: "1em" }}>Social Networks</h2>
+        <div className="container_images">
+          <img
+            onClick={() => {
+              window.open("https://www.linkedin.com/in/matias-leandro-flores/");
+            }}
+            src={linkedin}
+            alt="linkedin"
+          />
+          <img
+            onClick={() => {
+              window.open("https://www.instagram.com/matiasleandro._/?hl=es");
+            }}
+            src={instagram}
+            alt="instagram"
+          />
+          <img
+            onClick={() => {
+              window.open("https://www.facebook.com/MatiasLeandroFlores/");
+            }}
+            src={facebook}
+            alt="facebook"
+          />
+          <img
+            onClick={() => {
+              window.open(
+                "https://drive.google.com/file/d/1OLPW-9ng1Do1PmZKkOzLvBXi1ZD_XnjQ/view?usp=sharing"
+              );
+            }}
+            src={cv}
+            alt="cv"
+          />
+        </div>
+      </div>
     </div>
   );
 };

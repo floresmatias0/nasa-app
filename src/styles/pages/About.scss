@@ -177,3 +177,24 @@
 		-webkit-transform: translateY(0%);
 	}			
 }
+.container_social_networks{
+    h2{
+        font-family: f.$font_title;
+        color: f.$font_color;
+        text-align: center;
+    }
+}
+.container_images{
+    img{
+        margin: 0 1em;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.05);
+        }
+        &:active{
+            transform: scale(0.95);
+        }
+    }
+}

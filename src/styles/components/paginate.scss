@@ -9,7 +9,10 @@
         justify-content: center;
         list-style: none;
         padding: 0;
-        
+        .active{
+            background-color: f.$font_color_error !important;
+            transform: scale(1.2);
+        }
         li{
             background-color: f.$bg_button_color;
             padding: .5em;
@@ -23,7 +26,9 @@
                 text-decoration: none;       
                 color: f.$font_color;
                 font-family: f.$font_title;
+                
             }
+            
         }
     }
 }
