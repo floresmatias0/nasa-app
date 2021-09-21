@@ -18,6 +18,14 @@
     justify-content: space-between;
     justify-self: center;
     box-shadow: 0px 0px 2px f.$color_card_shadow;
+    @media screen and (max-width:680px) {
+        width: 380px !important;
+        min-width: 380px  !important;
+        max-width: 380px  !important;
+        height: 380px  !important;
+        min-height: 380px !important;
+        max-height: 380px  !important; 
+    } 
 }
 .buttonFav{
     margin: 0 auto;

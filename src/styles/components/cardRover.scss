@@ -126,7 +126,8 @@
         }  
     }
     .options{
-        z-index: 99 !important;
+        z-index: 2 !important;
+        background-color: c.$bg_card_hover;
     }
 
 
