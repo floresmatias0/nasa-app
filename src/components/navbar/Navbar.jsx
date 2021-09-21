@@ -13,13 +13,13 @@ const Navbar = () => {
       </div>
       <div>
         <span>
-          <NavLink to="/favorites" activeStyle={{ color: "#0B3D91" }}>
+          <NavLink to="/favorites" activeStyle={{ color: "#FC3D21", fontWeight: "600" }}>
             Favorites
           </NavLink>
         </span>
         <li></li>
         <span>
-          <NavLink to="/about" activeStyle={{ color: "#0B3D91" }}>
+          <NavLink to="/about" activeStyle={{ color: "#FC3D21", fontWeight: "600" }}>
             About
           </NavLink>
         </span>

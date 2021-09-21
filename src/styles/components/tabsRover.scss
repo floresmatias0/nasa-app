@@ -8,3 +8,9 @@
     background-repeat: repeat;
     padding: .5em 0;
 }
+@media screen and (max-width:680px) {
+    .container_rovers{
+        flex-direction: column ;
+    }
+
+}

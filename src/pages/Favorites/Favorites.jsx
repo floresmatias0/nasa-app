@@ -17,6 +17,15 @@ const Favorites = () => {
     let storage = localStorage.getItem("photos");
     if (storage) {
       Swal.fire({
+        customClass: {
+          container: 'container_custom',
+          popup: 'popup_custom',
+          title: 'title_custom_fav',
+          htmlContainer: 'html_custom_fav',
+          actions: 'actions_custom',
+          confirmButton: 'confirm_custom',
+          cancelButton: 'denied_custom',
+        },
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
         icon: 'warning',
@@ -31,17 +40,34 @@ const Favorites = () => {
           localStorage.clear();
           localStorage.setItem("photos", JSON.stringify(arr));
           arr.length > 0 ? setPhotos(arr) : localStorage.clear(), setPhotos([]);
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
+          Swal.fire({
+            customClass: {
+              container: 'container_custom',
+              popup: 'popup_custom',
+              title: 'title_custom_fav',
+              htmlContainer: 'html_custom_fav',
+              actions: 'actions_custom',
+              confirmButton: 'confirm_custom',
+              cancelButton: 'denied_custom',
+            },
+            title: 'Deleted!',
+            text: 'Your file has been deleted.',
+            icon: 'info'
+          })
         }else if(result.dismiss || result.isDenied){
-          Swal.fire(
-            'Good idea!',
-            'Your photo is safe.',
-            'info'
-          )
+          Swal.fire({
+            customClass: {
+              container: 'container_custom',
+              popup: 'popup_custom',
+              title: 'title_custom_fav',
+              htmlContainer: 'html_custom_fav',
+              actions: 'actions_custom',
+              confirmButton: 'confirm_custom',
+            },
+            title: 'Good idea!',
+            text: 'Your photo is safe.',
+            icon: 'info'
+          })
         }
         })
       return;

@@ -106,3 +106,27 @@
         
     }
 }
+
+@media screen and (max-width:680px) {
+    .card_rover{
+        flex-direction: column;
+        &:first-child{
+            border-bottom-left-radius: 0;
+            border-top-left-radius: .3em;
+            border-top-right-radius: .3em;
+        }
+        &:last-child{
+            border-top-right-radius: 0;
+            border-bottom-left-radius: .3em;
+            border-bottom-right-radius: .3em;
+        }
+        li{
+            width: 60%;
+            height: 2px;
+        }  
+    }
+    .info_rover{
+        display: none;
+    }
+
+}

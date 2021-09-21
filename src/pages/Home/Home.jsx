@@ -6,6 +6,8 @@ import CardPhoto from "../../components/cardPhoto/CardPhoto";
 import Paginate from "../../components/paginate/Paginate";
 import Skeleton from '../../components/skeleton/Skeleton';
 
+import rover from "../../assets/images/rover.png"
+
 import Swal from 'sweetalert2';
 
 const Home = ({ STATE, CONTENT, LOADING }) => {
@@ -34,6 +36,15 @@ const Home = ({ STATE, CONTENT, LOADING }) => {
       let storage = localStorage.getItem("photos")
       if(storage){
         Swal.fire({
+          customClass: {
+            container: 'container_custom',
+            popup: 'popup_custom',
+            title: 'title_custom_fav',
+            htmlContainer: 'html_custom_fav',
+            actions: 'actions_custom',
+            confirmButton: 'confirm_custom',
+            cancelButton: 'denied_custom',
+          },
           title: 'Do you want to bookmark this photo?',
           text: "it's a nice photo!",
           icon: 'warning',
@@ -52,30 +63,64 @@ const Home = ({ STATE, CONTENT, LOADING }) => {
                 arr.push(element)
                 localStorage.clear()
                 localStorage.setItem("photos",JSON.stringify(arr.concat(photo))) 
-                Swal.fire(
-                  'Added!',
-                  'Your photo is now in the favorites section',
-                  'success'
-                )
+                Swal.fire({
+                  customClass: {
+                    container: 'container_custom',
+                    popup: 'popup_custom',
+                    title: 'title_custom_fav',
+                    htmlContainer: 'html_custom_fav',
+                    actions: 'actions_custom',
+                    confirmButton: 'confirm_custom',
+                    cancelButton: 'denied_custom',
+                  },
+                  title: 'Added!',
+                  text: 'Your photo is now in the favorites section',
+                  icon: 'info'
+                })
               }else{
-                Swal.fire(
-                  'Oh! Oh!',
-                  'this photo already exists in your section',
-                  'info'
-                  )
+                Swal.fire({
+                  customClass: {
+                    container: 'container_custom',
+                    popup: 'popup_custom',
+                    title: 'title_custom_fav',
+                    htmlContainer: 'html_custom_fav',
+                    actions: 'actions_custom',
+                    confirmButton: 'confirm_custom',
+                  },
+                  title: 'Oh! Oh!',
+                  text: 'this photo already exists in your section',
+                  icon: 'info'
+                  })
               }
             })     
           }else if(result.dismiss || result.isDenied){
-            Swal.fire(
-              'Good idea!',
-              'There are better photos!',
-              'info'
-            )
+            Swal.fire({
+              customClass: {
+                container: 'container_custom',
+                popup: 'popup_custom',
+                title: 'title_custom_fav',
+                htmlContainer: 'html_custom_fav',
+                actions: 'actions_custom',
+                confirmButton: 'confirm_custom',
+              },
+              title: 'Good idea!',
+              text: 'There are better photos!',
+              icon: 'info'
+            })
           }
         })
           return
       }else{
         Swal.fire({
+          customClass: {
+            container: 'container_custom',
+            popup: 'popup_custom',
+            title: 'title_custom_fav',
+            htmlContainer: 'html_custom_fav',
+            actions: 'actions_custom',
+            confirmButton: 'confirm_custom',
+            cancelButton: 'denied_custom',
+          },
           title: 'Do you want to bookmark this photo?',
           text: "it's a nice photo!",
           icon: 'warning',
@@ -86,17 +131,34 @@ const Home = ({ STATE, CONTENT, LOADING }) => {
         }).then((result) => {
           if (result.isConfirmed) {
             localStorage.setItem("photos",JSON.stringify([photo]))
-            Swal.fire(
-              'Added!',
-              'Your photo is now in the favorites section.',
-              'success'
-            )
+            Swal.fire({
+              customClass: {
+                container: 'container_custom',
+                popup: 'popup_custom',
+                title: 'title_custom_fav',
+                htmlContainer: 'html_custom_fav',
+                actions: 'actions_custom',
+                confirmButton: 'confirm_custom',
+                cancelButton: 'denied_custom',
+              },
+              title: 'Added!',
+              text: 'Your photo is now in the favorites section',
+              icon: 'info'
+            })
           }else if(result.dismiss || result.isDenied){
-            Swal.fire(
-              'Good idea!',
-              'There are better photos!',
-              'info'
-            )
+            Swal.fire({
+              customClass: {
+                container: 'container_custom',
+                popup: 'popup_custom',
+                title: 'title_custom_fav',
+                htmlContainer: 'html_custom_fav',
+                actions: 'actions_custom',
+                confirmButton: 'confirm_custom',
+              },
+              title: 'Good idea!',
+              text: 'There are better photos!',
+              icon: 'info'
+            })
           }
         })
         
@@ -109,7 +171,8 @@ const Home = ({ STATE, CONTENT, LOADING }) => {
       <TabsRovers />
       <div>
         {STATE && !LOADING ? (
-          <>
+          currentPost.length >= 1 ? (
+            <>
             <div className="container_cards">
               {currentPost.map((elem, i) => (
                 <CardPhoto props={elem} key={i} addFav={addFavorite} removeFav={false}/>
@@ -121,6 +184,11 @@ const Home = ({ STATE, CONTENT, LOADING }) => {
               pagination={pagination}
             />
           </>
+          ):(
+            <div className="container_cards">
+              <img src={rover} alt="error"/>
+            </div>
+          )
         ) : (
           <div className="container_cards">
                 <Skeleton />

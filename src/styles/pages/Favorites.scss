@@ -11,3 +11,25 @@
         font-family: f.$font_title;
     }
 }
+
+.denied_custom{
+    background-color: #8c1515c4 !important;
+    font-family: f.$font_title !important;
+    padding: .2em .5em !important;
+    outline: none !important;
+    box-shadow: none !important;
+    &:hover{
+        background-color: #8c1515 !important;
+    }
+}
+.title_custom_fav{
+    color: #FFFFFF !important;
+    margin: 0 !important;
+    font-family: f.$font_title !important; 
+    padding: 0 !important;
+}
+.html_custom_fav{
+    margin: 0 !important;
+    color: #FFFFFF !important;
+    font-family: f.$font_title !important; 
+}
