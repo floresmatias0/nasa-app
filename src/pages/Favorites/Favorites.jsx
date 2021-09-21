@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardPhoto from "../../components/cardPhoto/CardPhoto";
-import { alertRemoverFav } from "../../components/alerts/alerts"
+import { alertRemoverFav } from "../../helpers/alerts/alerts";
 
 const Favorites = () => {
   const [photos, setPhotos] = useState([]);
