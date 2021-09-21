@@ -18,14 +18,14 @@
         }
     }
     &:hover{
-            background-color: #363636;
+            background-color: c.$bg_card_hover;
     }
 
     p{
         width: 200px;
         font-family: c.$font_title;
         font-weight: 300;
-        color: #FFFFFF;
+        color: c.$font_color;
         margin: .5em;
         cursor: pointer;
         
@@ -33,7 +33,7 @@
     li{
         width: 2px;
         list-style: none;
-        background-color: #888;
+        background-color: c.$separator_color;
         height: 60%;
         align-self: center;
     }  
@@ -52,7 +52,7 @@
     right: 0;
     margin: 0 auto;
     padding-top: 2.5em;
-    background-color: c.$bg_card;;
+    background-color: c.$bg_card;
     border-radius: .2em;
     width: 200px;
     clip-path: polygon(0 100%, 100% 100%, 100% 9%, 59% 9%, 51% 0, 44% 9%, 0 9%);
@@ -75,11 +75,11 @@
         }
         label{
             font-family: c.$font_title;
-            color: #FFFFFF;
+            color: c.$font_color;
             font-size: 14px;
         }
         span{
-            color: #b60303;
+            color: c.$font_color_error;
             font-family: c.$font_title;
             font-size: 13px;
             font-weight: 600;
@@ -88,16 +88,16 @@
         }
         button{
             font-family: c.$font_title; 
-            background-color: #15418cc4;
+            background-color: c.$bg_button_color;
             cursor: pointer;
             border: none;
             outline: none;
             width: 80%;
             border-radius: .3em;
             margin: .5em auto;
-            color: #FFFFFF;
+            color: c.$font_color;
             &:hover{
-                background-color: #15418c;
+                background-color: c.$bg_button_color_hover;
             }
             &:active{
                 transform: scale(0.95);
@@ -125,8 +125,6 @@
             height: 2px;
         }  
     }
-    .info_rover{
-        display: none;
-    }
+
 
 }

@@ -28,19 +28,19 @@
             padding: 0 1em;
             display: flex;
             a{
-                color: #FFFFFF;
+                color: t.$font_color;
                 text-decoration: none;
                 font-family: t.$font_title;
                 align-self: center;
             }  
             &:hover{
-                background-color: #36363677;
+                background-color: t.$hover_item_navbar;
             }
         }
         li{
             width: 2px;
             list-style: none;
-            background-color: #555555;
+            background-color: t.$bg_card;
             height: 60%;
             align-self: center;
         }

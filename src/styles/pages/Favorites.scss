@@ -7,29 +7,29 @@
     justify-content: flex-start;
     align-items: center;
     h1{
-        color: #FFFFFF;
+        color: f.$font_color;
         font-family: f.$font_title;
     }
 }
 
 .denied_custom{
-    background-color: #8c1515c4 !important;
+    background-color: f.$denied_custom_color !important;
     font-family: f.$font_title !important;
     padding: .2em .5em !important;
     outline: none !important;
     box-shadow: none !important;
     &:hover{
-        background-color: #8c1515 !important;
+        background-color: f.$denied_custom_color_hover !important;
     }
 }
 .title_custom_fav{
-    color: #FFFFFF !important;
-    margin: 0 !important;
+    color: f.$font_color !important;
+    margin: 0 1em !important;
     font-family: f.$font_title !important; 
     padding: 0 !important;
 }
 .html_custom_fav{
     margin: 0 !important;
-    color: #FFFFFF !important;
+    color: f.$font_color !important;
     font-family: f.$font_title !important; 
 }

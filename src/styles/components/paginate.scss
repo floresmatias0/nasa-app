@@ -1,4 +1,5 @@
 @use '../_variables.scss' as f;
+
 .container_paginate{
     width: 100%;
     ul{
@@ -10,7 +11,7 @@
         padding: 0;
         
         li{
-            background-color: #15418cc4;
+            background-color: f.$bg_button_color;
             padding: .5em;
             border-radius: .2em;
             cursor: pointer;
@@ -20,7 +21,7 @@
             }
             a{
                 text-decoration: none;       
-                color: #FFFFFF;
+                color: f.$font_color;
                 font-family: f.$font_title;
             }
         }

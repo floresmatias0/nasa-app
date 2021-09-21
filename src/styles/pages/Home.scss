@@ -8,7 +8,7 @@
     align-items: center;
     h1{
         font-family: f.$font_title;
-        color: #FFFFFF;
+        color: f.$font_color;
         margin: 0;
     }
 }
@@ -18,4 +18,8 @@
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
+    margin-top: 1em;
+    img{
+        width: 80%;
+    }
 }

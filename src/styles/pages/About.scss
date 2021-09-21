@@ -7,7 +7,7 @@
     justify-content: flex-start;
     align-items: center;
     h1, p{
-        color: #FFFFFF;
+        color: f.$font_color;
         font-family: f.$font_title;
     }
     p{
@@ -19,7 +19,7 @@
     border-radius: 50%;
     background-image: url("../../assets/images/starfield-banner.jpg");
     background-repeat: repeat;
-    box-shadow: 0px 0px 5px #FFFFFF;
+    box-shadow: 0px 0px 5px f.$font_color;
     width: 420px !important;
     min-width: 420px !important;
     max-width: 420px !important;
@@ -34,7 +34,7 @@
 }
 .title_custom{
     font-size: 14px !important;
-    color: #FFFFFF !important;
+    color: f.$font_color !important;
     margin: 0 !important;
     font-family: f.$font_title !important; 
     padding: 0 !important;
@@ -43,20 +43,20 @@
     font-size: 12px !important;
     margin: 0 !important;
     margin: 0 1.8em !important;
-    color: #FFFFFF !important;
+    color: f.$font_color !important;
     font-family: f.$font_title !important; 
 }
 .actions_custom{
     margin: 0 !important;
 }
 .confirm_custom{
-    background-color: #15418cc4 !important;
+    background-color: f.$bg_button_color !important;
     font-family: f.$font_title !important;
     padding: .2em .5em !important;
     outline: none !important;
     box-shadow: none !important;
     &:hover{
-        background-color: #15418c !important;
+        background-color: f.$bg_button_color_hover !important;
     }
 }
 

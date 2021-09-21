@@ -12,8 +12,6 @@ import arrow from '../../assets/images/up-arrow.png';
 const CardRover = ({
   props: {
     name,
-    status,
-    landing_date,
     launch_date,
     max_date,
     max_sol,
@@ -48,11 +46,8 @@ const CardRover = ({
       <Tippy
         content={
           <div className="info_rover">
-            <p>status: {status}</p>
-            <p>launch date: {launch_date}</p>
-            <p>landing date: {landing_date}</p>
             <p>max date: {max_date}</p>
-            <p>max sol distance: {max_sol}</p>
+            <p>max sol: {max_sol}</p>
             <p>photos: {total_photos}</p>
           </div>
         }
